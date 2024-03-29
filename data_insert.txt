@@ -1,0 +1,256 @@
+mysql> source data_insertion.sql;
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+#print data inserted into bank table
+mysql> SELECT * FROM bank;
++---------+-----------+
+| bank_id | bank_name |
++---------+-----------+
+|       1 | Chase     |
++---------+-----------+
+1 row in set (0.01 sec)
+
+#print data inserted into branch table
+mysql> SELECT * FROM branch;
++---------+-----------------+-------------+
+| bank_id | branch_name     | branch_city |
++---------+-----------------+-------------+
+|       1 | Chase-Arlington | Arlington   |
+|       1 | Chase-Seattle   | Seattle     |
++---------+-----------------+-------------+
+2 rows in set (0.01 sec)
+
+#print data inserted into branch_assets table
+mysql> SELECT * FROM branch_assets;
++-----------------+--------------------+
+| branch_name     | asset              |
++-----------------+--------------------+
+| Chase-Arlington | Laptop             |
+| Chase-Seattle   | Laptop,Bike,Mobile |
++-----------------+--------------------+
+2 rows in set (0.01 sec)
+
+#print data inserted into employee table
+
+mysql> SELECT * FROM employee;
++---------+-----------+---------+----------+--------------+------------+
+| bank_id | emp_SSN   | Fname   | Lname    | telephone_no | start_date |
++---------+-----------+---------+----------+--------------+------------+
+|       1 | 101111112 | Joe     | Ray      | 7234567891   | 2012-11-19 |
+|       1 | 101111113 | Jay     | Prichett | 7234567891   | 2012-11-21 |
+|       1 | 111111111 | Paul    | Jose     | 9234567890   | 1999-12-31 |
+|       1 | 111111112 | William | Serena   | 1234567890   | 2012-11-06 |
+|       1 | 201111113 | Gloria  | Prichett | 7234567881   | 2012-11-20 |
++---------+-----------+---------+----------+--------------+------------+
+5 rows in set (0.02 sec)
+
+# print data inserted into management table
+mysql> SELECT * FROM management;
++-----------+-----------+
+| emp_SSN   | mgr_ssn   |
++-----------+-----------+
+| 101111112 | 101111113 |
+| 101111113 | NA        |
+| 111111111 | 111111112 |
+| 111111112 | NA        |
+| 201111113 | 111111112 |
++-----------+-----------+
+5 rows in set (0.01 sec)
+
+# print data inserted into customer table
+mysql> SELECT * FROM customer;
++---------+-----------+----------+----------+----------+--------------+
+| bank_id | cust_SSN  | Fname    | Lname    | city     | street       |
++---------+-----------+----------+----------+----------+--------------+
+|       1 | 501151113 | Ross     | Geller   | Vermont  | 1st Ave      |
+|       1 | 801151113 | Pheobe   | Buffey   | World    | 2nd Ave      |
+|       1 | 891151113 | Chandler | Bing     | Tulsa    | 3rd Ave      |
+|       1 | 901111113 | Joey     | Tribiani | New York | Central Park |
++---------+-----------+----------+----------+----------+--------------+
+4 rows in set (0.02 sec)
+
+# print data inserted into account table
+mysql> SELECT * FROM account;
++---------+-----------------+------------+----------+--------------+--------------+-----------+
+| bank_id | branch_name     | account_no | balance  | account_type | intrest_rate | overdraft |
++---------+-----------------+------------+----------+--------------+--------------+-----------+
+|       1 | Chase-Seattle   |     123456 |   705.20 | savings      | 1.1          | NA        |
+|       1 | Chase-Seattle   |     323459 |   500.00 | checking     | NA           | 100       |
+|       1 | Chase-Arlington |     401239 |  1000.00 | checking     | NA           | 200       |
+|       1 | Chase-Arlington |     901234 | 10000.00 | savings      | 9.1          | NA        |
++---------+-----------------+------------+----------+--------------+--------------+-----------+
+4 rows in set (0.01 sec)
+
+# print data inserted into loan table
+mysql> SELECT * FROM loan;
++---------+---------------+---------+---------+-------------+------------+------------+
+| bank_id | branch_name   | loan_no | amount  | loan_type   | start_date | end_date   |
++---------+---------------+---------+---------+-------------+------------+------------+
+|       1 | Chase-Seattle |   87340 | 1000.00 | Personal    | 2015-12-05 | 2025-12-05 |
+|       1 | Chase-Seattle |  234567 | 5000.00 | Credit card | 2020-11-05 | 2022-11-05 |
++---------+---------------+---------+---------+-------------+------------+------------+
+2 rows in set (0.01 sec)
+
+# print data inserted into payment table
+mysql> SELECT * FROM payment;
++------------+---------+--------+---------------------+
+| payment_no | loan_no | amount | payment_date        |
++------------+---------+--------+---------------------+
+|          1 |   87340 | 123.00 | 2022-11-19 15:47:19 |
+|          2 |  234567 | 100.00 | 2022-11-19 15:47:19 |
++------------+---------+--------+---------------------+
+2 rows in set (0.01 sec)
+
+# print data inserted into transaction table
+
+mysql> SELECT * FROM transaction;
++----------------+------------+--------+---------------------+------------------+
+| transaction_no | account_no | amount | transaction_date    | transaction_type |
++----------------+------------+--------+---------------------+------------------+
+|              1 |     901234 | 100.00 | 2022-11-19 15:47:19 | Withdraw         |
+|              2 |     401239 | 100.00 | 2022-11-19 15:47:19 | Deposit          |
++----------------+------------+--------+---------------------+------------------+
+2 rows in set (0.01 sec)
+
+# print data inserted into cust_banker table
+mysql> SELECT * FROM cust_banker;
++-----------+-----------+-----------------+
+| cust_SSN  | emp_SSN   | b_type          |
++-----------+-----------+-----------------+
+| 501151113 | 101111112 | loan officer    |
+| 501151113 | 101111112 | personal banker |
+| 801151113 | 111111111 | personal banker |
+| 901111113 | 111111111 | loan officer    |
+| 901111113 | 111111111 | personal banker |
+| 891151113 | 201111113 | personal banker |
++-----------+-----------+-----------------+
+6 rows in set (0.01 sec)
+
+# print data inserted into depositor table
+mysql> SELECT * FROM depositor;
++-----------+------------+---------------------+
+| cust_SSN  | account_no | access_date         |
++-----------+------------+---------------------+
+| 501151113 |     323459 | 2022-11-19 15:47:19 |
+| 801151113 |     901234 | 2022-11-19 15:47:19 |
+| 891151113 |     401239 | 2022-11-19 15:47:19 |
+| 901111113 |     123456 | 2022-11-19 15:47:19 |
++-----------+------------+---------------------+
+4 rows in set (0.01 sec)
+
+ #print data inserted into borrower table
+mysql> SELECT * FROM borrower;
++-----------+---------+
+| cust_SSN  | loan_no |
++-----------+---------+
+| 901111113 |   87340 |
+| 501151113 |  234567 |
++-----------+---------+
+2 rows in set (0.01 sec)
+
+ #print data inserted into emp_dependant table
+mysql> SELECT * FROM emp_dependant;
++-----------+----------------+
+| emp_SSN   | dependant_name |
++-----------+----------------+
+| 101111112 | Judy           |
+| 101111113 | Mike           |
+| 111111111 | Pranali        |
+| 111111112 | Janice         |
+| 111111112 | Rachel         |
+| 201111113 | Andy           |
++-----------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> notee;

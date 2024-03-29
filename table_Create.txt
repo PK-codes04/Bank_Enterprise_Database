@@ -1,0 +1,168 @@
+mysql> source Create_tables.sql;
+Query OK, 0 rows affected (0.07 sec)
+
+Query OK, 0 rows affected (0.08 sec)
+
+Query OK, 0 rows affected (0.10 sec)
+
+Query OK, 0 rows affected (0.08 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.08 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.10 sec)
+
+Query OK, 0 rows affected (0.07 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| bank_id   | int         | NO   | PRI | NULL    |       |
+| bank_name | varchar(20) | NO   |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| bank_id     | int         | NO   | PRI | NULL    |       |
+| branch_name | varchar(40) | NO   | PRI | NULL    |       |
+| branch_city | varchar(40) | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| bank_id      | int         | NO   | PRI | NULL    |       |
+| emp_SSN      | bigint      | NO   | PRI | NULL    |       |
+| Fname        | varchar(20) | NO   |     | NULL    |       |
+| Lname        | varchar(20) | NO   |     | NULL    |       |
+| telephone_no | varchar(20) | NO   |     | NULL    |       |
+| start_date   | date        | NO   |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| emp_SSN | bigint      | NO   | PRI | NULL    |       |
+| mgr_ssn | varchar(20) | NO   | PRI | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
++--------------+---------------+------+-----+---------+-------+
+| Field        | Type          | Null | Key | Default | Extra |
++--------------+---------------+------+-----+---------+-------+
+| bank_id      | int           | NO   | PRI | NULL    |       |
+| branch_name  | varchar(40)   | NO   | PRI | NULL    |       |
+| account_no   | bigint        | NO   | PRI | NULL    |       |
+| balance      | decimal(20,2) | NO   |     | NULL    |       |
+| account_type | varchar(20)   | NO   |     | NULL    |       |
+| intrest_rate | varchar(20)   | YES  |     | NULL    |       |
+| overdraft    | varchar(20)   | YES  |     | NULL    |       |
++--------------+---------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| bank_id  | int         | NO   | PRI | NULL    |       |
+| cust_SSN | bigint      | NO   | PRI | NULL    |       |
+| Fname    | varchar(20) | NO   |     | NULL    |       |
+| Lname    | varchar(20) | NO   |     | NULL    |       |
+| city     | varchar(20) | NO   |     | NULL    |       |
+| street   | varchar(20) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
++-------------+---------------+------+-----+---------+-------+
+| Field       | Type          | Null | Key | Default | Extra |
++-------------+---------------+------+-----+---------+-------+
+| bank_id     | int           | NO   | PRI | NULL    |       |
+| branch_name | varchar(40)   | NO   | PRI | NULL    |       |
+| loan_no     | bigint        | NO   | PRI | NULL    |       |
+| amount      | decimal(20,2) | NO   |     | NULL    |       |
+| loan_type   | varchar(20)   | NO   |     | NULL    |       |
+| start_date  | date          | NO   |     | NULL    |       |
+| end_date    | date          | NO   |     | NULL    |       |
++-------------+---------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
++--------------+---------------+------+-----+-------------------+-------------------+
+| Field        | Type          | Null | Key | Default           | Extra             |
++--------------+---------------+------+-----+-------------------+-------------------+
+| payment_no   | bigint        | NO   | PRI | NULL              | auto_increment    |
+| loan_no      | bigint        | NO   | MUL | NULL              |                   |
+| amount       | decimal(20,2) | NO   |     | NULL              |                   |
+| payment_date | datetime      | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++--------------+---------------+------+-----+-------------------+-------------------+
+4 rows in set (0.01 sec)
+
++------------------+---------------+------+-----+-------------------+-------------------+
+| Field            | Type          | Null | Key | Default           | Extra             |
++------------------+---------------+------+-----+-------------------+-------------------+
+| transaction_no   | bigint        | NO   | PRI | NULL              | auto_increment    |
+| account_no       | bigint        | NO   | PRI | NULL              |                   |
+| amount           | decimal(20,2) | NO   |     | NULL              |                   |
+| transaction_date | datetime      | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| transaction_type | varchar(20)   | NO   |     | NULL              |                   |
++------------------+---------------+------+-----+-------------------+-------------------+
+5 rows in set (0.01 sec)
+
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| cust_SSN | bigint      | NO   | PRI | NULL    |       |
+| emp_SSN  | bigint      | NO   | PRI | NULL    |       |
+| b_type   | varchar(20) | NO   | PRI | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
++-------------+----------+------+-----+-------------------+-------------------+
+| Field       | Type     | Null | Key | Default           | Extra             |
++-------------+----------+------+-----+-------------------+-------------------+
+| cust_SSN    | bigint   | NO   | PRI | NULL              |                   |
+| account_no  | bigint   | NO   | PRI | NULL              |                   |
+| access_date | datetime | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++-------------+----------+------+-----+-------------------+-------------------+
+3 rows in set (0.01 sec)
+
++----------+--------+------+-----+---------+-------+
+| Field    | Type   | Null | Key | Default | Extra |
++----------+--------+------+-----+---------+-------+
+| cust_SSN | bigint | NO   | PRI | NULL    |       |
+| loan_no  | bigint | NO   | PRI | NULL    |       |
++----------+--------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| branch_name | varchar(40) | NO   | PRI | NULL    |       |
+| asset       | varchar(20) | NO   | PRI | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| emp_SSN        | bigint      | NO   | PRI | NULL    |       |
+| dependant_name | varchar(20) | NO   | PRI | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
+
+mysql> notee;
